@@ -8,14 +8,18 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- Add a logger config to see logging messages. -->
-	<bean id="myLoggerConfig"
-		class="com.spring.demo.MyLoggerConfig"
+	<bean id="myLoggerConfig" class="com.spring.demo.MyLoggerConfig"
 		init-method="initLogger">
 		<property name="rootLoggerLevel" value="FINE" />
 		<property name="printedLoggerLevel" value="FINE" />
 	</bean>
 
+	<!-- define bean dependency -->
+	<bean id="happyFortuneService" class="com.spring.demo.HappyFortune"></bean>
+
 	<bean id="coach" class="com.spring.demo.TrackCoach">
+		<!-- define injection -->
+		<constructor-arg ref="happyFortuneService"></constructor-arg>
 	</bean>
 
 </beans>

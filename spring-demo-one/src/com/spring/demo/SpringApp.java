@@ -15,6 +15,8 @@ public class SpringApp {
 	// process
 	System.out.println(bean.getDailyWorkout());
 
+	System.out.println(bean.getDailyFortune());
+
 	// close
 	context.close();
 
