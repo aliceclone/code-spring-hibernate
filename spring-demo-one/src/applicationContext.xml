@@ -19,10 +19,10 @@
 		init-method="initLogger">
 		<property
 			name="rootLoggerLevel"
-			value="FINE" />
+			value="FINEST" />
 		<property
 			name="printedLoggerLevel"
-			value="FINE" />
+			value="FINEST" />
 	</bean>
 
 	<!-- define bean dependency -->
