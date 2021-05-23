@@ -23,6 +23,10 @@ public class SpringApp {
 	System.out.println(cricketBean.getDailyWorkout());
 	System.out.println(cricketBean.getDailyFortune());
 
+	// test literal values
+	System.out.println(((CricketCoach) cricketBean).getEmailAddress());
+	System.out.println(((CricketCoach) cricketBean).getTeam());
+
 	// close
 	context.close();
 
