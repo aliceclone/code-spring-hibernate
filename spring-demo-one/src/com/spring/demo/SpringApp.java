@@ -17,6 +17,12 @@ public class SpringApp {
 
 	System.out.println(bean.getDailyFortune());
 
+	// test setter inject
+	Coach cricketBean = context.getBean("cricketCoach", Coach.class);
+
+	System.out.println(cricketBean.getDailyWorkout());
+	System.out.println(cricketBean.getDailyFortune());
+
 	// close
 	context.close();
 
