@@ -6,12 +6,13 @@ public class RandomFortune implements FortuneService {
 
     final String[] genFortune = { "lucky", "normal", "bad" };
 
+    // create instance of Random class
+    private Random rand = new Random();
+
     @Override
     public String getFortune() {
-	// create instance of Random class
-	Random rand = new Random();
 	// get random fortune
-	return "Random: " + genFortune[rand.nextInt(3)];
+	return "Random: " + genFortune[rand.nextInt(genFortune.length)];
     }
 
 }
