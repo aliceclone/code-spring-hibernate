@@ -10,7 +10,7 @@ public class SpringApp {
 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 	// retrieve bean
-	Coach bean = context.getBean("coach", Coach.class);
+	Coach bean = context.getBean("trackCoach", Coach.class);
 
 	// process
 	System.out.println(bean.getDailyWorkout());
@@ -30,6 +30,11 @@ public class SpringApp {
 	// test properties values
 	System.out.println(((CricketCoach) cricketBean).getStatus());
 	System.out.println(((CricketCoach) cricketBean).getProgram());
+
+	// Practice Activity #2
+	Coach baseBall = context.getBean("baseBallCoach", Coach.class);
+	System.out.println(baseBall.getDailyWorkout());
+	System.out.println(baseBall.getDailyFortune());
 
 	// close
 	context.close();
