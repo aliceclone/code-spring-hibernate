@@ -8,6 +8,10 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- load properties -->
+	<context:property-placeholder
+		location="classpath:/properties/cricket.properties"></context:property-placeholder>
+
 	<!-- Add a logger config to see logging messages. -->
 	<bean
 		id="myLoggerConfig"
@@ -47,6 +51,13 @@
 		<property
 			name="team"
 			value="Team-A"></property>
+		<!-- load from properties -->
+		<property
+			name="status"
+			value="${cricket.status}"></property>
+		<property
+			name="program"
+			value="${cricket.program}"></property>
 	</bean>
 
 </beans>

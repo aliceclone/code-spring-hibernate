@@ -10,6 +10,8 @@ public class CricketCoach implements Coach {
 
     private String emailAddress;
     private String team;
+    private String status;
+    private String program;
 
     public String getEmailAddress() {
 	return emailAddress;
@@ -18,6 +20,24 @@ public class CricketCoach implements Coach {
     public void setEmailAddress(String emailAddress) {
 	System.out.println("setEmailAddress: " + emailAddress);
 	this.emailAddress = emailAddress;
+    }
+
+    public String getStatus() {
+	return status;
+    }
+
+    public void setStatus(String status) {
+	System.out.println("setStatus: " + status);
+	this.status = status;
+    }
+
+    public String getProgram() {
+	return program;
+    }
+
+    public void setProgram(String program) {
+	System.out.println("setProgram: " + program);
+	this.program = program;
     }
 
     public String getTeam() {

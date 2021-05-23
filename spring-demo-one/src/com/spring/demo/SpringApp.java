@@ -27,6 +27,10 @@ public class SpringApp {
 	System.out.println(((CricketCoach) cricketBean).getEmailAddress());
 	System.out.println(((CricketCoach) cricketBean).getTeam());
 
+	// test properties values
+	System.out.println(((CricketCoach) cricketBean).getStatus());
+	System.out.println(((CricketCoach) cricketBean).getProgram());
+
 	// close
 	context.close();
 
