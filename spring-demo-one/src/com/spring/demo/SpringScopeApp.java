@@ -21,12 +21,24 @@ public class SpringScopeApp {
 
 	// retrieve bean from scope-hook-applicationContext.xml
 	// test init-method and destory-method
-	// [Note] In the case of prototypes, configured destruction lifecycle callbacks
-	// are not called.
 	Coach baseBallCoach = context.getBean("baseballCoach", Coach.class);
 	System.out.println("[getDailyFortune]: " + baseBallCoach.getDailyFortune());
 
+	// Practice Activity #3 Bean Scopes
+	// [Note] prototype scope configured destruction lifecycle callbacks
+	// are not called.
+
+	ClassPathXmlApplicationContext activityContext = new ClassPathXmlApplicationContext(
+		"scope-hook-activity-applicationContext.xml");
+	Coach footballCoachA = activityContext.getBean("footballCoach", Coach.class);
+	Coach footballCoachB = activityContext.getBean("footballCoach", Coach.class);
+	// test bean life and scope
+	System.out.println(
+		"[Result] footballCoachA == footballCoachB in prototype: " + footballCoachA.equals(footballCoachB));
+
+	// close
 	context.close();
+	activityContext.close();
     }
 
 }

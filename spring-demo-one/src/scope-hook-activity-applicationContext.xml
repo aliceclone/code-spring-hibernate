@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Handle destroy methods on prototype scoped beans -->
+	<bean
+		id="customProcessor"
+		class="com.spring.demo.MyCustomBeanProcessor">
+	</bean>
+
+	<bean
+		id="fortuneService"
+		class="com.spring.demo.HappyFortune"></bean>
+
+	<bean
+		id="footballCoach"
+		class="com.spring.demo.FootballCoach"
+		init-method="doPrivately"
+		scope="prototype">
+		<!-- destroy-method="cleanupMess" -->
+		<constructor-arg ref="fortuneService"></constructor-arg>
+	</bean>
+
+</beans>
