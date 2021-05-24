@@ -1,6 +1,7 @@
 package com.spring.demo.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,6 +14,7 @@ public class SwimmingCoach implements Coach {
     }
 
     @Autowired
+    @Qualifier("randomFortuneService")
     public void setFortuneService(FortuneService fortuneService) {
 	this.happyFortuneService = fortuneService;
     }

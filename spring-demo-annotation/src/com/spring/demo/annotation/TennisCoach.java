@@ -1,6 +1,7 @@
 package com.spring.demo.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //@Component("myTennisCoach")
@@ -10,6 +11,8 @@ public class TennisCoach implements Coach {
     // inject
     // field inject
     @Autowired
+    // multi implementation, so
+    @Qualifier("happyFortuneService")
     private FortuneService fortuneService;
 
     public TennisCoach() {
