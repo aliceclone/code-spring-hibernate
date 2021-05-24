@@ -1,6 +1,5 @@
 package com.spring.demo.annotation;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 //@Component("myTennisCoach")
@@ -16,10 +15,10 @@ public class TennisCoach implements Coach {
     // mark dependency, search qualifying bean of type
     // spring 4.3 and later, optional when ONLY one constructor exist
 
-    @Autowired
-    public TennisCoach(FortuneService fortuneService) {
-	this.fortuneService = fortuneService;
-    }
+    /*
+     * @Autowired public TennisCoach(FortuneService fortuneService) {
+     * this.fortuneService = fortuneService; }
+     */
 
     @Override
     public String getDailyWorkout() {
