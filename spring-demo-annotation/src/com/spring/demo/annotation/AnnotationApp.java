@@ -16,6 +16,10 @@ public class AnnotationApp {
 	Coach swimmingBean = context.getBean("swimmingCoach", Coach.class);
 	System.out.println(swimmingBean.getDailyWorkout());
 
+	// test setter inject annotation
+	// allow any field and setter method name unlike XML
+	System.out.println(swimmingBean.getFortune());
+
 	// constructor inject annotation
 	System.out.println(tennisBean.getFortune());
 

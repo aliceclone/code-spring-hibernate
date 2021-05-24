@@ -10,7 +10,12 @@ public class TennisCoach implements Coach {
     // inject
     private FortuneService fortuneService;
 
+    public TennisCoach() {
+    }
+
     // mark dependency, search qualifying bean of type
+    // spring 4.3 and later, optional when ONLY one constructor exist
+
     @Autowired
     public TennisCoach(FortuneService fortuneService) {
 	this.fortuneService = fortuneService;
