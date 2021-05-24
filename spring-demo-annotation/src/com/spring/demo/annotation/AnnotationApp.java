@@ -16,6 +16,9 @@ public class AnnotationApp {
 	Coach swimmingBean = context.getBean("swimmingCoach", Coach.class);
 	System.out.println(swimmingBean.getDailyWorkout());
 
+	// constructor inject annotation
+	System.out.println(tennisBean.getFortune());
+
 	// close
 	context.close();
 
