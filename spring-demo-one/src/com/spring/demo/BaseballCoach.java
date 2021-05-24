@@ -6,10 +6,12 @@ public class BaseballCoach implements Coach {
     private FortuneService fortuneService;
 
     public BaseballCoach() {
+	System.out.println("[BaseballCoach - default constructor]");
     }
 
     // define constructor injection
     public BaseballCoach(FortuneService fortuneService) {
+	System.out.println("[BaseballCoach - arg constructor]");
 	this.fortuneService = fortuneService;
     }
 
@@ -23,4 +25,11 @@ public class BaseballCoach implements Coach {
 	return fortuneService.getFortune();
     }
 
+    public void doReady() {
+	System.out.println("[BaseballCoach - doReady]");
+    }
+
+    public void doCleanup() {
+	System.out.println("[BaseballCoach - doCleanup]");
+    }
 }
