@@ -9,8 +9,12 @@ public class AnnotationApp {
 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 	// get bean
-	Coach bean = context.getBean("tennisCoach", Coach.class);
-	System.out.println(bean.getDailyWorkout());
+	Coach tennisBean = context.getBean("tennisCoach", Coach.class);
+	System.out.println(tennisBean.getDailyWorkout());
+
+	// practice Activity #4 - Inversion of Control with Java Annotations
+	Coach swimmingBean = context.getBean("swimmingCoach", Coach.class);
+	System.out.println(swimmingBean.getDailyWorkout());
 
 	// close
 	context.close();
