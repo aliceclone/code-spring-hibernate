@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @Scope(value = "prototype")
 public class SwimmingCoach implements Coach {
 
+	
     private FortuneService happyFortuneService;
 
     // optional default constructor for spring 5
