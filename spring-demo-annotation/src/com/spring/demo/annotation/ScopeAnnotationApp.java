@@ -12,6 +12,8 @@ public class ScopeAnnotationApp {
 	Coach swimCoachB = context.getBean("swimmingCoach", Coach.class);
 	System.out.println("[Result] is same in prototype scope: " + swimCoachA.equals(swimCoachB));
 
+	context.close();
+
     }
 
 }

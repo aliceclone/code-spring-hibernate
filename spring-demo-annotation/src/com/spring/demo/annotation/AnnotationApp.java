@@ -26,6 +26,7 @@ public class AnnotationApp {
 	// Practice Activity #5 - DI with Annotations + properties
 	Coach motivationCoach = context.getBean("motivationCoach", Coach.class);
 	System.out.println(motivationCoach.getDailyWorkout());
+	// Practice Activity #6 - Bean Scopes with @PostConstruct Annotations
 	System.out.println(motivationCoach.getFortune());
 
 	// close
