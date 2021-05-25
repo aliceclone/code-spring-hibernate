@@ -2,12 +2,11 @@ package config.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
 import com.spring.demo.annotation.Coach;
 import com.spring.demo.annotation.FortuneService;
 
-@Component
+//@Component
 public class SillyCoach implements Coach {
 
 	private FortuneService fortuneService;
