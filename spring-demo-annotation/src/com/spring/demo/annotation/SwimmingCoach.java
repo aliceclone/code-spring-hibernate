@@ -2,9 +2,11 @@ package com.spring.demo.annotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope(value = "prototype")
 public class SwimmingCoach implements Coach {
 
     private FortuneService happyFortuneService;

@@ -23,6 +23,11 @@ public class AnnotationApp {
 	// constructor inject annotation
 	System.out.println(tennisBean.getFortune());
 
+	// Practice Activity #5 - DI with Annotations + properties
+	Coach motivationCoach = context.getBean("motivationCoach", Coach.class);
+	System.out.println(motivationCoach.getDailyWorkout());
+	System.out.println(motivationCoach.getFortune());
+
 	// close
 	context.close();
 
