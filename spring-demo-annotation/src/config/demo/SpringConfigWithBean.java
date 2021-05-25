@@ -8,7 +8,6 @@ import org.springframework.context.annotation.PropertySources;
 
 import com.spring.demo.annotation.FortuneService;
 import com.spring.demo.annotation.RandomFortuneService;
-import com.spring.demo.annotation.SwimmingCoach;
 
 @Configuration
 @PropertySources({@PropertySource("classpath:log.properties"),
@@ -30,10 +29,10 @@ public class SpringConfigWithBean {
 	}
 
 	@Bean
-	public SwimmingCoach swimmingCoach() {
-		SwimmingCoach swimmingCoach = new SwimmingCoach();
-		swimmingCoach.setFortuneService(randomFortuneService());
-		return swimmingCoach;
+	public SillyCoach sillyCoach() {
+		SillyCoach sillyCoach = new SillyCoach();
+		sillyCoach.setFortuneService(randomFortuneService());
+		return sillyCoach;
 	}
 
 }

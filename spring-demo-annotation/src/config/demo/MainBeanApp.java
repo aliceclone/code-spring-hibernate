@@ -11,10 +11,9 @@ public class MainBeanApp {
 		// test log with @Bean
 		AnnotationConfigApplicationContext contextWithBean = new AnnotationConfigApplicationContext(
 				SpringConfigWithBean.class);
-		Coach swimmingCoach = contextWithBean.getBean("swimmingCoach",
-				Coach.class);
-		System.out.println(swimmingCoach.getDailyWorkout());
-		System.out.println(swimmingCoach.getFortune());
+		Coach sillyCoach = contextWithBean.getBean("sillyCoach", Coach.class);
+		System.out.println(sillyCoach.getDailyWorkout());
+		System.out.println(sillyCoach.getFortune());
 
 		// close
 		contextWithBean.close();

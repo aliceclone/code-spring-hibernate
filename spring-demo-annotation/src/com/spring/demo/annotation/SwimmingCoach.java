@@ -9,27 +9,26 @@ import org.springframework.stereotype.Component;
 @Scope(value = "prototype")
 public class SwimmingCoach implements Coach {
 
-	
-    private FortuneService happyFortuneService;
+	private FortuneService happyFortuneService;
 
-    // optional default constructor for spring 5
-    public SwimmingCoach() {
-    }
+	// optional default constructor for spring 5
+	public SwimmingCoach() {
+	}
 
-    @Autowired
-    @Qualifier("randomFortuneService")
-    public void setFortuneService(FortuneService fortuneService) {
-	this.happyFortuneService = fortuneService;
-    }
+	@Autowired
+	@Qualifier("randomFortuneService")
+	public void setFortuneService(FortuneService fortuneService) {
+		this.happyFortuneService = fortuneService;
+	}
 
-    @Override
-    public String getDailyWorkout() {
-	return "Swim 30 minutes a day.";
-    }
+	@Override
+	public String getDailyWorkout() {
+		return "Swim 30 minutes a day.";
+	}
 
-    @Override
-    public String getFortune() {
-	return "[SwimmingCoach] " + happyFortuneService.getFortune();
-    }
+	@Override
+	public String getFortune() {
+		return "[SwimmingCoach] " + happyFortuneService.getFortune();
+	}
 
 }
