@@ -1,4 +1,4 @@
-package config.demo;
+package noxml.spring.demo.annotation.config;
 
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;

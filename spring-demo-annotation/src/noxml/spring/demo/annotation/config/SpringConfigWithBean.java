@@ -1,4 +1,4 @@
-package config.demo;
+package noxml.spring.demo.annotation.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

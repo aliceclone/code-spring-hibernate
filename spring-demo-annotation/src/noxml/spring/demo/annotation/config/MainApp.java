@@ -1,4 +1,4 @@
-package config.demo;
+package noxml.spring.demo.annotation.config;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
