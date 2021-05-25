@@ -1,5 +1,8 @@
 package com.spring.demo.annotation;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -33,6 +36,17 @@ public class TennisCoach implements Coach {
 
     public String getFortune() {
 	return fortuneService.getFortune();
+
+    }
+
+    @PostConstruct
+    public void doSomething() {
+	System.out.println("[TennisCoach] do something.");
+    }
+
+    @PreDestroy
+    public void cleanMess() {
+	System.out.println("[TennisCoach] clean mess.");
 
     }
 
