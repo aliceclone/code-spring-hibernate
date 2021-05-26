@@ -7,10 +7,11 @@
 <title>Greet Form</title>
 </head>
 <body>
-	<form action="greet" method="GET">
+	<!-- <form action="greet" method="GET" -->
+	<form action="shout" method="GET">
 		<input type="text" name="name" placeholder="What's is your name" />
 		<input type="submit">
-
 	</form>
+	
 </body>
 </html>
