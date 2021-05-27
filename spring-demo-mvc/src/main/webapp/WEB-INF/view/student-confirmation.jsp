@@ -4,14 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home</title>
+<title>Student | Confirmation</title>
 </head>
 <body>
-<h1> Hey You!</h1>
-<hr>
-<a href="hi/showForm">Show Greet Form</a>
-<br>
 
-<a href="student/form">Show Student Form</a>
+Confirmed: ${student.firstName} ${student.lastName}
+
 </body>
 </html>
