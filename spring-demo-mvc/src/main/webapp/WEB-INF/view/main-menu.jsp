@@ -9,6 +9,6 @@
 <body>
 <h1> Hey You!</h1>
 <hr>
-<a href="showGreet">Show Greet Form</a>
+<a href="hi/showForm">Show Greet Form</a>
 </body>
 </html>
