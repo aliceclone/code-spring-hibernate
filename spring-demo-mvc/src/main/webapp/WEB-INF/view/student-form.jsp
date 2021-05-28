@@ -46,7 +46,14 @@
 
 		<br>
 		<br>
-
+		<form:label path="favoriteLanguage">Favorite Language 👀</form:label>
+		<br>
+		<form:radiobutton path="favoriteLanguage" value="Java"/>Java
+		<form:radiobutton path="favoriteLanguage" value="Dart"/>Dart
+		<form:radiobutton path="favoriteLanguage" value="Python"/>Python
+		<form:radiobutton path="favoriteLanguage" value="PHP"/>PHP
+		<br><br>
+		
 		<input type="submit" value="Submit" />
 
 	</form:form>

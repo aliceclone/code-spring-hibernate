@@ -12,6 +12,8 @@ public class Student {
 
 	private Map<String, String> countryOptionsA;
 
+	private String favoriteLanguage;
+
 	public Student() {
 		countryOptionsA = new HashMap<>();
 		countryOptionsA.put("AR", "Argentina");
@@ -54,6 +56,14 @@ public class Student {
 
 	public void setCountryB(String countryB) {
 		this.countryB = countryB;
+	}
+
+	public String getFavoriteLanguage() {
+		return favoriteLanguage;
+	}
+
+	public void setFavoriteLanguage(String favoriteLanguage) {
+		this.favoriteLanguage = favoriteLanguage;
 	}
 
 }

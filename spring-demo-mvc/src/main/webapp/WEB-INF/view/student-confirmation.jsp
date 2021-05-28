@@ -14,5 +14,7 @@ CountryA: ${student.countryA}
 <br>
 CountryB: ${student.countryB}
 
+<hr>
+Favorite Language: ${student.favoriteLanguage}
 </body>
 </html>
