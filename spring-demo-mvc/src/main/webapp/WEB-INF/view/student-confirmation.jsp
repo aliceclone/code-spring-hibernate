@@ -9,6 +9,10 @@
 <body>
 
 Confirmed: ${student.firstName} ${student.lastName}
+<br><br>
+CountryA: ${student.countryA}
+<br>
+CountryB: ${student.countryB}
 
 </body>
 </html>
