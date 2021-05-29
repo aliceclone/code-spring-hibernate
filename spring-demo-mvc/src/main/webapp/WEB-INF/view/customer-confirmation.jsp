@@ -9,7 +9,9 @@
 <body>
 
 Confirmed: ${customer.firstName} ${customer.lastName}
+<br><br>
 Free pass: ${customer.freePass}
-
+<br><br>
+Postal Code: ${customer.postalCode}
 </body>
 </html>

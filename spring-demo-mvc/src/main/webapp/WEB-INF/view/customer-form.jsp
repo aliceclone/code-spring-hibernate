@@ -27,13 +27,18 @@
 		<form:errors path="lastName" cssClass="error" />
 		<br>
 		<br>
-		
+
 		<form:label path="freePass">Free Pass: </form:label>
 		<form:input path="freePass" />
-		<form:errors path="freePass" cssClass="error"/>
+		<form:errors path="freePass" cssClass="error" />
 		<br>
-        <br>
+		<br>
 
+		<form:label path="postalCode">Postal Code: </form:label>
+		<form:input path="postalCode" />
+		<form:errors path="postalCode" cssClass="error" />
+		<br>
+		<br>
 		<input type="submit" value="Submit">
 	</form:form>
 
