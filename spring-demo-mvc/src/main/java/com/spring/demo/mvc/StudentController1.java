@@ -33,7 +33,7 @@ public class StudentController1 {
 
 	// Argument Level:
 	@RequestMapping("/processForm")
-	public String processForm(@ModelAttribute Student student) {
+	public String processForm(@ModelAttribute Student student, @ModelAttribute Map<String, String> countryOptionsB) {
 
 		System.out.println("[StudentController] processForm " + student.getFirstName() + " " + student.getLastName());
 		return "student-confirmation";

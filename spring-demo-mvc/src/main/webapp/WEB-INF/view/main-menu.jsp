@@ -10,8 +10,11 @@
 <h1> Hey You!</h1>
 <hr>
 <a href="hi/showForm">Show Greet Form</a>
-<br>
+<br><br>
 
 <a href="student/form">Show Student Form</a>
+<br><br>
+
+<a href="customer/form">Show Customer Form</a>
 </body>
 </html>

@@ -53,7 +53,13 @@
 		<form:radiobutton path="favoriteLanguage" value="Python"/>Python
 		<form:radiobutton path="favoriteLanguage" value="PHP"/>PHP
 		<br><br>
-		
+
+		<form:label path="operatingSystems">Operating System 👾</form:label>
+		<br>
+		 <form:checkbox path="operatingSystems" value="Linux"/>Linux
+		 <form:checkbox path="operatingSystems" value="MacOS"/>Mac OS
+		 <form:checkbox path="operatingSystems" value="Windows"/>Windows
+		<br><br>
 		<input type="submit" value="Submit" />
 
 	</form:form>
