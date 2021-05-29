@@ -19,6 +19,7 @@
 	<form:form action="processForm" modelAttribute="customer" method="POST">
 		<form:label path="firstName">First Name: </form:label>
 		<form:input path="firstName" />
+		<form:errors path="firstName" cssClass="error" />
 		<br>
 		<br>
 
@@ -39,6 +40,13 @@
 		<form:errors path="postalCode" cssClass="error" />
 		<br>
 		<br>
+		
+		<form:label path="courseCode">Course Code: </form:label>
+        <form:input path="courseCode" />
+        <form:errors path="courseCode" cssClass="error" />
+        <br>
+        <br>
+        
 		<input type="submit" value="Submit">
 	</form:form>
 

@@ -2,12 +2,17 @@ package com.spring.demo.mvc;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.spring.demo.mvc.validation.CourseCode;
+
 public class Customer {
 
+	// @NotEmpty checks that the size/length & null of the supplied object
+	@NotBlank(message = "is required")
 	private String firstName;
 
 	@NotNull(message = "is required")
@@ -22,6 +27,9 @@ public class Customer {
 
 	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 digit or characters are allowed")
 	private String postalCode;
+
+	@CourseCode(value = "APP", message = "Must start with APP")
+	private String courseCode;
 
 	public String getFirstName() {
 		return firstName;
@@ -53,6 +61,14 @@ public class Customer {
 
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
+	}
+
+	public String getCourseCode() {
+		return courseCode;
+	}
+
+	public void setCourseCode(String courseCode) {
+		this.courseCode = courseCode;
 	}
 
 }
