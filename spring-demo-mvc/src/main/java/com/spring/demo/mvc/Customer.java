@@ -39,7 +39,7 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-	public int getFreePass() {
+	public Integer getFreePass() {
 		return freePass;
 	}
 
