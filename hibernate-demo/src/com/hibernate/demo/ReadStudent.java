@@ -19,7 +19,7 @@ public class ReadStudent {
 	    session.beginTransaction();
 
 	    // process
-	    Student student = new Student("yamada", "koku", "yamada@hibernate.com");
+	    Student student = new Student("yamada", "koku", "yamada@spring.com");
 	    System.out.println("[Saving]....");
 	    session.save(student);
 
