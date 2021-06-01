@@ -1,4 +1,4 @@
-package com.hibernate.demo;
+package com.hibernate.demo.crud;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

@@ -1,4 +1,4 @@
-package com.hibernate.demo;
+package com.hibernate.demo.crud;
 
 import java.util.List;
 
