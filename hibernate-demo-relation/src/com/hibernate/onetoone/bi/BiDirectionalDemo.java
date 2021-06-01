@@ -39,6 +39,7 @@ public class BiDirectionalDemo {
 	} finally {
 	    // close
 	    System.out.println("[closing]");
+	    session.close();
 	    sessionFactory.close();
 	}
     }

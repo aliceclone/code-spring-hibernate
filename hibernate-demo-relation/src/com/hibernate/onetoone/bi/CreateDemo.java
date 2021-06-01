@@ -21,9 +21,9 @@ public class CreateDemo {
 	    // process
 
 	    // create object
-	    Instructor instructor = new Instructor("koku", "yamada", "koku@world.com");
+	    Instructor instructor = new Instructor("paul", "schol", "paul@gmail.com");
 
-	    InstructorDetail instructorDetail = new InstructorDetail("koku@youtube.com", "Photography");
+	    InstructorDetail instructorDetail = new InstructorDetail("paul@youtube.com", "Cooking");
 
 	    // associate
 	    instructor.setInstructorDetail(instructorDetail);
@@ -41,6 +41,7 @@ public class CreateDemo {
 	} finally {
 	    // close
 	    System.out.println("[closing]");
+	    session.close();
 	    sessionFactory.close();
 	}
     }

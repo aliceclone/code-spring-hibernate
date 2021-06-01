@@ -32,6 +32,8 @@ public class CreateDemo {
 	    // 🤯 CASCADE will save InstructorDetail too
 	    System.out.println("[save] " + instructor);
 	    session.save(instructor);
+	    // ❗Without CASCADE.ALL, need to save
+	    // session.save(instructorDetail);
 	    System.out.println("🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻");
 
 	    // commit
@@ -41,6 +43,7 @@ public class CreateDemo {
 	} finally {
 	    // close
 	    System.out.println("[closing]");
+	    session.close();
 	    sessionFactory.close();
 	}
     }

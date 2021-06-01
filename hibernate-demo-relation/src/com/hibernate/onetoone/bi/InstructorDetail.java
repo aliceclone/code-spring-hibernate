@@ -22,7 +22,10 @@ public class InstructorDetail {
     }
 
     // ❗Bi directional
-    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    // @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    // ignore remove, when delete only delete detail
+    @OneToOne(mappedBy = "instructorDetail", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+	    CascadeType.REFRESH })
     private Instructor instructor;
 
     @Id

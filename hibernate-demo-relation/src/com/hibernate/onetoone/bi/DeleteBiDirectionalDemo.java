@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class DeleteDemo {
+public class DeleteBiDirectionalDemo {
 
     public static void main(String[] args) {
 
@@ -19,16 +19,21 @@ public class DeleteDemo {
 	    session.beginTransaction();
 
 	    // process
-	    // get
-	    int instructorId = 1;
-	    Instructor instructor = session.get(Instructor.class, instructorId);
-	    System.out.println("[get] " + instructor);
-	    if (instructor != null) {
-		// delete
-		// 🤯 CASCADE will save InstructorDetail too
-		// ❗HQL statement won't work with CASCADE️
-		System.out.println("[deleting] " + instructor);
-		session.delete(instructor);
+	    // get instructor detail
+	    int instructorDetailId = 3;
+	    InstructorDetail instructorDetail = session.get(InstructorDetail.class, instructorDetailId);
+	    System.out.println("[get] instructorDetail" + instructorDetail);
+
+	    if (instructorDetail != null) {
+		// 🤯 delete instructor detail will also instructor deleted CASCADE
+		System.out.println("[delete]  ");
+		// ❗Without CASCADE.ALL, need to remove deleted object from associations
+		instructorDetail.getInstructor().setInstructorDetail(null);
+
+		session.delete(instructorDetail);
+
+	    } else {
+		System.out.println("[delete] No Instructor Detail Found ");
 	    }
 
 	    System.out.println("🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻");
@@ -40,6 +45,7 @@ public class DeleteDemo {
 	} finally {
 	    // close
 	    System.out.println("[closing]");
+	    session.close();
 	    sessionFactory.close();
 	}
     }
