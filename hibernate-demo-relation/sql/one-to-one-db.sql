@@ -1,8 +1,8 @@
-DROP SCHEMA IF EXISTS `hb_one_to_one`;
+#DROP SCHEMA IF EXISTS `hb_one_to_one`;
 
-CREATE SCHEMA `hb_one_to_one`;
+#CREATE SCHEMA `hb_one_to_one`;
 
-use `hb_one_to_one`;
+#use `hb_one_to_one`;
 
 SET FOREIGN_KEY_CHECKS = 0;
 

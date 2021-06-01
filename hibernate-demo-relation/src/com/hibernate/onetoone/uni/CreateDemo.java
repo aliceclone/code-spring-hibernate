@@ -21,9 +21,9 @@ public class CreateDemo {
 	    // process
 
 	    // create object
-	    Instructor instructor = new Instructor("kim", "minho", "kim@udemy.com");
+	    Instructor instructor = new Instructor("mono", "polo", "mono@gmail.com");
 
-	    InstructorDetail instructorDetail = new InstructorDetail("kim@youtube.com", "Photography");
+	    InstructorDetail instructorDetail = new InstructorDetail("mono@youtube.com", "Photography");
 
 	    // associate
 	    instructor.setInstructorDetail(instructorDetail);
@@ -33,7 +33,7 @@ public class CreateDemo {
 	    System.out.println("[save] " + instructor);
 	    session.save(instructor);
 	    // ❗Without CASCADE.ALL, need to save
-	    // session.save(instructorDetail);
+	    // session.persist(instructor);
 	    System.out.println("🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻");
 
 	    // commit

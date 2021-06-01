@@ -25,7 +25,7 @@ public class DeleteDemo {
 	    System.out.println("[get] " + instructor);
 	    if (instructor != null) {
 		// delete
-		// 🤯 CASCADE will save InstructorDetail too
+		// 🤯 CASCADE will delete InstructorDetail too
 		// ❗HQL statement won't work with CASCADE️
 		System.out.println("[deleting] " + instructor);
 		session.delete(instructor);

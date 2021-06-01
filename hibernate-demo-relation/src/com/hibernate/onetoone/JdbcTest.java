@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class JdbcTest {
 
-    public static final String URL_DB = "jdbc:mysql://localhost:3306/hb_one_to_one?useSSL=false&serverTimezone=UTC";
+    public static final String URL_DB = "jdbc:mysql://localhost:3306/hb_relation?useSSL=false&serverTimezone=UTC";
     public static final String USER = "hbstudent";
     public static final String PASSWORD = "hbstudent";
 
