@@ -1,4 +1,4 @@
-package com.hibernate.onetoone.bi;
+package com.hibernate.onetomany.bi;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,10 +21,10 @@ public class InstructorDetail {
 	this.hobby = hobby;
     }
 
-    // @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
     // ignore remove, when delete only delete detail
-    @OneToOne(mappedBy = "instructorDetail", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-	    CascadeType.REFRESH })
+// @OneToOne(mappedBy = "instructorDetail", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+//	    CascadeType.REFRESH })
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
     private Instructor instructor;
 
     @Id
@@ -62,11 +62,11 @@ public class InstructorDetail {
 	this.hobby = hobby;
     }
 
-    // ❗Bi directional
     public Instructor getInstructor() {
 	return instructor;
     }
 
+    // ❗Bi directional
     public void setInstructor(Instructor instructor) {
 	this.instructor = instructor;
     }
