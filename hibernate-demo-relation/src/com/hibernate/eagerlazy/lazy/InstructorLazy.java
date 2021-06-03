@@ -49,7 +49,7 @@ public class InstructorLazy {
 
     // One to Many, FetchType.LAZY
     // ❗FetchType.EAGER will left outer join course from begining
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "theInstructor", cascade = { CascadeType.PERSIST, CascadeType.MERGE,
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "theInstructor", cascade = { CascadeType.PERSIST, CascadeType.MERGE,
 	    CascadeType.DETACH, CascadeType.REFRESH })
     private List<CourseLazy> courses = new ArrayList<>();
 
