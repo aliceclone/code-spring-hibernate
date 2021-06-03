@@ -1,4 +1,4 @@
-package com.hibernate.onetomany.bi;
+package com.hibernate.eagerlazy.lazy;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,12 +12,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "course")
-public class Course {
+public class CourseLazy {
 
-    public Course() {
+    public CourseLazy() {
     }
 
-    public Course(String title) {
+    public CourseLazy(String title) {
 	this.title = title;
     }
 
@@ -32,7 +32,7 @@ public class Course {
     // ❗
     @ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
     @JoinColumn(name = "instructor_id")
-    private Instructor theInstructor;
+    private InstructorLazy theInstructor;
 
     public int getId() {
 	return id;
@@ -51,11 +51,11 @@ public class Course {
     }
 
     // ❗Bi directional
-    public Instructor getTheInstructor() {
+    public InstructorLazy getTheInstructor() {
 	return theInstructor;
     }
 
-    public void setTheInstructor(Instructor theInstructor) {
+    public void setTheInstructor(InstructorLazy theInstructor) {
 	this.theInstructor = theInstructor;
     }
 
