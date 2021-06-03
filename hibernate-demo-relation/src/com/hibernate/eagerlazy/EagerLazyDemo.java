@@ -31,8 +31,8 @@ public class EagerLazyDemo {
 	    System.out.println("[Get Instructor] " + instructor);
 	    System.out.println("🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻");
 
-	    // System.out.println("[Get Instructor of Course] " + instructor.getCourses());
-	    System.out.println("🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻🔺🔻");
+	    System.out.println("❗ as LAZY FETCH, Course will fetch by separated sql");
+	    System.out.println("[Get Instructor of Course] " + instructor.getCourses());
 
 	    // commit
 	    session.getTransaction().commit();
