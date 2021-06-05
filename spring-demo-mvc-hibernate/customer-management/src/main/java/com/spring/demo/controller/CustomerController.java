@@ -54,12 +54,20 @@ public class CustomerController {
 	return "customer-form";
     }
 
-    @GetMapping(path = "/update/{id}")
+    @GetMapping(path = "/{id}/update")
     public String formUpdate(@PathVariable("id") int id, Model model) {
 	// @RequestParam("customerId") can also use with c:url
 	Customer customer = customerService.getCustomer(id);
 	model.addAttribute("customerForm", customer);
 	return "customer-form";
+    }
+
+    @GetMapping(path = "/{id}/delete")
+    public String delete(@PathVariable("id") int id) {
+
+	customerService.deleteCustomer(id);
+	// ❗PRG flow implemented
+	return "redirect:/customers";
     }
 
 }

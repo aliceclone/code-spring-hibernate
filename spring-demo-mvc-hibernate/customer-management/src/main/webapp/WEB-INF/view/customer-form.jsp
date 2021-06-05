@@ -27,6 +27,8 @@
 		<h3>Save Customer</h3>
        <%--  <spring:url value="/customers" var="customerActionUrl" /> --%>
 		<form:form modelAttribute="customerForm" action="${pageContext.request.contextPath}/customers" method="POST">
+			<%-- ❗ without hidden (id) update won't work --%>
+			<form:hidden path="id" />
 			<table>
 				<tbody>
 					<tr>

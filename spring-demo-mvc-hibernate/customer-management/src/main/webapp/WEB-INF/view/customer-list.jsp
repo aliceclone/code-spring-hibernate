@@ -45,11 +45,12 @@
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Email</th>
-						<th>Action</th>
+						<th colspan="2">Action</th>
 					</tr>
 				</thead>
 
 				<!-- fetch data  -->
+
 				<tbody>
 					<c:forEach var="customer" items="${customers}">
 
@@ -57,11 +58,16 @@
 							<td>${customer.firstName}</td>
 							<td>${customer.lastName}</td>
 							<td>${customer.email}</td>
-							<td><a href="customers/update/${customer.id}">Update</a></td>
-
+							<td><a href="customers/${customer.id}/update">Update</a></td>
+							<td>
+								<!-- way II with spring url --> <spring:url
+									value="/customers/${customer.id}/delete" var="deleteUrl" /> <a
+								href="${deleteUrl}"
+								onclick="if(!confirm('Are you sure?')) return false;">Delete</a>
+							</td>
 						</tr>
 
-						<!-- way II with c:url -->
+						<!-- way III with c:url -->
 						<%-- 	
 						<c:url var="updateLink" value="formUpdate">
 							<c:param name="customerId" value="${customer.id}">
