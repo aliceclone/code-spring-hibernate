@@ -50,7 +50,7 @@ public class CustomerController {
     @PostMapping("/save")
     public String save(@ModelAttribute Customer customer) {
 	// save
-	customerService.addCustomer(customer);
+	customerService.saveCustomer(customer);
 	// ❗PRG flow implemented
 	return "redirect:/customer/success";
     }

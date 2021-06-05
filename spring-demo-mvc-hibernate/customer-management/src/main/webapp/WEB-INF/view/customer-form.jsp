@@ -27,6 +27,8 @@
 
 		<form:form modelAttribute="customer" action="save"
 			method="POST">
+			<!--❗need to attach with customer id  -->
+			<form:hidden path="id"/>
 
 			<table>
 				<tbody>
