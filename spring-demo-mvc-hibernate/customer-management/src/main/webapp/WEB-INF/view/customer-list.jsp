@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,17 +14,25 @@
 <%-- include css link with spring --%>
 <spring:url value="/resources/css/style.css" var="mainCss"></spring:url>
 <link type="text/css" rel="stylesheet" href="${mainCss}" />
-  
-  
+
+
 <title>Customer | List</title>
 </head>
 <body>
 
 	<div id="wrapper">
-	<div id="header">
+		<div id="header">
 			<h2>Customer Management</h2>
 		</div>
 	</div>
+
+<!-- return false -> cancel default behavior (in this case: prevent submitting) -->
+<!-- 	<input type="button" value="Add Customer"
+		onclick="window.location.href='form'; return false;"
+		class="add-button"> -->
+		
+	<a href="formAdd" style="text-decoration: none; color: #7aa1f4">
+		Add Customer</a>
 
 	<div id="container">
 
@@ -41,14 +49,14 @@
 
 				<!-- fetch data  -->
 				<tbody>
-					<c:forEach var="customer" items="${customers}" >
-					
+					<c:forEach var="customer" items="${customers}">
+
 						<tr>
 							<td>${customer.firstName}</td>
 							<td>${customer.lastName}</td>
 							<td>${customer.email}</td>
 						</tr>
-						
+
 					</c:forEach>
 				</tbody>
 
