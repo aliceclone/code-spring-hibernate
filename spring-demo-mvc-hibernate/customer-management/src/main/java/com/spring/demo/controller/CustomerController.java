@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -40,7 +41,7 @@ public class CustomerController {
 	return "customer-list";
     }
 
-    @GetMapping("/formAdd")
+    @GetMapping("/form")
     public String formAdd() {
 	// @ModelAttribute Customer no need to bind
 	return "customer-form";
@@ -57,6 +58,14 @@ public class CustomerController {
     @GetMapping("/success")
     public String success(Model model) {
 	return list(model);
+    }
+
+    @GetMapping(path = "/form/{id}")
+    public String formUpdate(@PathVariable("id") int id, Model model) {
+	// @RequestParam("customerId") can also use with c:url
+	Customer customer = customerService.getCustomer(id);
+	model.addAttribute(customer);
+	return "customer-form";
     }
 
 }

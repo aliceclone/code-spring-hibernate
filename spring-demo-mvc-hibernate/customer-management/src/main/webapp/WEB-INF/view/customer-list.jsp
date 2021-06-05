@@ -26,13 +26,14 @@
 		</div>
 	</div>
 
-<!-- return false -> cancel default behavior (in this case: prevent submitting) -->
-<!-- 	<input type="button" value="Add Customer"
+	<!-- return false -> cancel default behavior (in this case: prevent submitting) -->
+	<!-- 	<input type="button" value="Add Customer"
 		onclick="window.location.href='form'; return false;"
 		class="add-button"> -->
-		
-	<a href="formAdd" style="text-decoration: none; color: #7aa1f4">
-		Add Customer</a>
+
+	<a href="form" style="text-decoration: none; color: #7aa1f4"
+		class="add-button">New Customer</a>
+
 
 	<div id="container">
 
@@ -44,6 +45,7 @@
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Email</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 
@@ -55,9 +57,21 @@
 							<td>${customer.firstName}</td>
 							<td>${customer.lastName}</td>
 							<td>${customer.email}</td>
+							<td><a href="form/${customer.id}">Update</a></td>
+
 						</tr>
 
+						<!-- way II with c:url -->
+						<%-- 	
+						<c:url var="updateLink" value="formUpdate">
+							<c:param name="customerId" value="${customer.id}">
+							</c:param>
+						</c:url> 
+						--%>
+						<!-- way II -->
+
 					</c:forEach>
+
 				</tbody>
 
 			</table>
