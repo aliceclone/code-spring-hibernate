@@ -32,4 +32,13 @@ public class CustomerDaoImpl implements CustomerDao {
 	return customers;
     }
 
+    @Override
+    public void addCustomer(Customer customer) {
+	Session session = sessionFactory.getCurrentSession();
+
+	if (customer != null) {
+	    session.save(customer);
+	}
+    }
+
 }
