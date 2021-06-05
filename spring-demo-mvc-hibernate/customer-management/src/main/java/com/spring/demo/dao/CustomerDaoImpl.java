@@ -2,8 +2,6 @@ package com.spring.demo.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -20,8 +18,8 @@ public class CustomerDaoImpl implements CustomerDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    // ❗️@Transactional MOVE TO Service layer
     @Override
-    @Transactional
     public List<Customer> getCustomers() {
 	// get current session
 	Session session = sessionFactory.getCurrentSession();
