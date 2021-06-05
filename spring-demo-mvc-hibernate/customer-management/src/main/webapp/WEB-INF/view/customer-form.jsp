@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,12 +25,8 @@
 
 	<div id="container">
 		<h3>Save Customer</h3>
-
-		<form:form modelAttribute="customer" action="save"
-			method="POST">
-			<!--❗need to attach with customer id  -->
-			<form:hidden path="id"/>
-
+       <%--  <spring:url value="/customers" var="customerActionUrl" /> --%>
+		<form:form modelAttribute="customerForm" action="${pageContext.request.contextPath}/customers" method="POST">
 			<table>
 				<tbody>
 					<tr>
@@ -59,7 +56,7 @@
 		</form:form>
 	</div>
 	
-	<a href="${pageContext.request.contextPath}/customer/list">Back</a>
+	<a href="${pageContext.request.contextPath}/customers">Back</a>
 
 	<!-- WORK too <a href="list">Back</a> -->
 	

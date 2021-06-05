@@ -31,7 +31,7 @@
 		onclick="window.location.href='form'; return false;"
 		class="add-button"> -->
 
-	<a href="form" style="text-decoration: none; color: #7aa1f4"
+	<a href="customers/add" style="text-decoration: none; color: #7aa1f4"
 		class="add-button">New Customer</a>
 
 
@@ -57,7 +57,7 @@
 							<td>${customer.firstName}</td>
 							<td>${customer.lastName}</td>
 							<td>${customer.email}</td>
-							<td><a href="form/${customer.id}">Update</a></td>
+							<td><a href="customers/update/${customer.id}">Update</a></td>
 
 						</tr>
 
