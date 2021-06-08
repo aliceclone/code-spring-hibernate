@@ -1,4 +1,4 @@
-package com.spring.demo.aop.aspect;
+package com.spring.aop.after.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class AspectCombo {
 
     // pointcut for service package
-    @Pointcut("execution(* com.spring.demo.aop.service.*.* (..))")
+    @Pointcut("execution(* com.spring.aop.after.service.*.* (..))")
     private void servicePackage() {
     }
 

@@ -1,4 +1,4 @@
-package com.spring.jointpoint.aspect;
+package com.spring.aop.jointpoint.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -7,13 +7,13 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 
-import com.spring.demo.aop.entity.Account;
+import com.spring.entity.Account;
 
 @Aspect
 @Component
 public class CloudAspect {
 
-    @Pointcut("execution(* com.spring.jointpoint..*.* (..))")
+    @Pointcut("execution(* com.spring.aop.jointpoint..*.* (..))")
     private void jointpointPackage() {
     }
 
@@ -30,8 +30,8 @@ public class CloudAspect {
 	for (Object temp : args) {
 	    System.out.println("📍 : " + temp);
 
-	    if (temp instanceof Account) {
-		Account account = (Account) temp;
+	    if (temp instanceof com.spring.entity.Account) {
+		Account account = (com.spring.entity.Account) temp;
 		System.out.println(account.getLevel());
 	    }
 	    // autobox for int

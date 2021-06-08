@@ -1,8 +1,8 @@
-package com.spring.demo.aop.dao;
+package com.spring.aop.pointcut.dao;
 
 import org.springframework.stereotype.Component;
 
-import com.spring.demo.aop.entity.Account;
+import com.spring.entity.Account;
 
 @Component
 public class AccountDao {

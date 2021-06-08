@@ -1,11 +1,11 @@
-package com.spring.demo.aop;
+package com.spring.aop.after;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.spring.SpringConfig;
-import com.spring.demo.aop.dao.AccountDao;
-import com.spring.demo.aop.dao.OtherAccountDao;
-import com.spring.demo.aop.entity.Account;
+import com.spring.aop.after.dao.AccountDao;
+import com.spring.aop.after.dao.OtherAccountDao;
+import com.spring.entity.Account;
 
 public class MainApp {
 
@@ -15,7 +15,7 @@ public class MainApp {
 	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
 	// get bean
-	AccountDao accountDao = context.getBean("accountDao", AccountDao.class);
+	AccountDao accountDao = context.getBean("accDao", AccountDao.class);
 	OtherAccountDao otherAccount = context.getBean("otherAccountDao", OtherAccountDao.class);
 
 	// logic

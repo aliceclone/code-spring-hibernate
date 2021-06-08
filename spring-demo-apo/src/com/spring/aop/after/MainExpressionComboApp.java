@@ -1,11 +1,11 @@
-package com.spring.demo.aop;
+package com.spring.aop.after;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.spring.SpringConfig;
-import com.spring.demo.aop.dao.AccountDao;
-import com.spring.demo.aop.entity.Account;
-import com.spring.demo.aop.service.AccountService;
+import com.spring.aop.after.dao.OtherAccountDao;
+import com.spring.aop.after.service.AccountService;
+import com.spring.entity.Account;
 
 public class MainExpressionComboApp {
 
@@ -15,13 +15,14 @@ public class MainExpressionComboApp {
 	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
 	// get bean
-	AccountService accountService = context.getBean("accountService", AccountService.class);
+	com.spring.aop.after.service.AccountService accountService = context.getBean("accountService",
+		AccountService.class);
 	accountService.combo(new Account());
 
 	// check setter/getter is called
 	// @Pointcut("servicePackage() && !(getter() || setter() )")
 	accountService.setLevel("some level");
-	accountService.setAccountDao(new AccountDao());
+	accountService.setAccountDao(new OtherAccountDao());
 	accountService.getLevel();
 
 	// close

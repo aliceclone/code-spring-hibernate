@@ -1,4 +1,4 @@
-package com.spring.demo.aop.aspect;
+package com.spring.aop.pointcut.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -7,12 +7,12 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Order(1)
+@Order(2)
 @Component
 public class LogAspectPointcutDeclare {
 
     // declare pointcut for dao package
-    @Pointcut("execution(public * com.spring.demo.aop.dao.*.* (..))")
+    @Pointcut("execution(public * com.spring.aop.pointcut.dao.*.* (..))")
     private void anyMethodOfDao() {
 	// will not run this part!
     }

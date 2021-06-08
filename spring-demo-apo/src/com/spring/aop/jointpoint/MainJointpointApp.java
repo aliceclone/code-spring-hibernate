@@ -1,10 +1,10 @@
-package com.spring.jointpoint;
+package com.spring.aop.jointpoint;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.spring.SpringConfig;
-import com.spring.demo.aop.entity.Account;
-import com.spring.jointpoint.dao.MemberDao;
+import com.spring.aop.jointpoint.dao.MemberDao;
+import com.spring.entity.Account;
 
 public class MainJointpointApp {
 

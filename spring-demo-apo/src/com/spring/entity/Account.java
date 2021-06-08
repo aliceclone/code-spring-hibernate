@@ -1,4 +1,4 @@
-package com.spring.demo.aop.entity;
+package com.spring.entity;
 
 public class Account {
 

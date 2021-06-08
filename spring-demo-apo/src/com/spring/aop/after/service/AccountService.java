@@ -1,14 +1,13 @@
-package com.spring.demo.aop.service;
+package com.spring.aop.after.service;
 
 import org.springframework.stereotype.Component;
 
-import com.spring.demo.aop.dao.AccountDao;
-import com.spring.demo.aop.entity.Account;
+import com.spring.aop.after.dao.OtherAccountDao;
 
 @Component
 public class AccountService {
 
-    private AccountDao accountDao;
+    private OtherAccountDao accountDao;
 
     private String level;
 
@@ -22,17 +21,17 @@ public class AccountService {
 	this.level = level;
     }
 
-    public void combo(Account account) {
+    public void combo(com.spring.entity.Account account) {
 	System.out.println(getClass().getSimpleName() + ": combo() \n");
 	System.out.println("");
     }
 
-    public AccountDao getAccountDao() {
+    public OtherAccountDao getAccountDao() {
 	System.out.println(getClass().getSimpleName() + ": getAccountDao() \n");
 	return accountDao;
     }
 
-    public void setAccountDao(AccountDao accountDao) {
+    public void setAccountDao(OtherAccountDao accountDao) {
 	System.out.println(getClass().getSimpleName() + ": setAccountDao() \n");
 	this.accountDao = accountDao;
     }

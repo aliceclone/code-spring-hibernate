@@ -1,8 +1,8 @@
-package com.spring.jointpoint.dao;
+package com.spring.aop.jointpoint.dao;
 
 import org.springframework.stereotype.Component;
 
-import com.spring.demo.aop.entity.Account;
+import com.spring.entity.Account;
 
 @Component
 public class MemberDao {
