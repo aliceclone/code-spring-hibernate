@@ -2,6 +2,7 @@ package com.spring.demo.aop;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.spring.SpringConfig;
 import com.spring.demo.aop.dao.AccountDao;
 import com.spring.demo.aop.entity.Account;
 import com.spring.demo.aop.service.AccountService;
