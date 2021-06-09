@@ -1,14 +1,11 @@
-package com.spring.aop.afterthrowandafter;
-
-import java.util.List;
+package com.spring.aop.around;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.spring.SpringConfig;
-import com.spring.aop.afterthrowandafter.dao.CoachDao;
-import com.spring.entity.Account;
+import com.spring.aop.around.service.CakeService;
 
-public class MainAfterThrowApp {
+public class MainAroundApp {
 
     public static void main(String[] args) {
 
@@ -16,19 +13,20 @@ public class MainAfterThrowApp {
 	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
 	// get bean
-	CoachDao coachDao = context.getBean("coachDao", CoachDao.class);
+	CakeService cakeService = context.getBean("cakeService", CakeService.class);
 
 	// logic
 
+	String serviceText = "";
+
 	try {
-
-	    // true to trigger exception
-	    List<Account> coaches = coachDao.findCoaches(true);
-	    System.out.println(coaches);
-
+	    serviceText = cakeService.bakeCake(true);
 	} catch (Exception e) {
 	    // e.printStackTrace();
+	    System.out.println("MainAroundApp : Oh No!");
 	}
+
+	System.out.println("MainAroundApp : " + serviceText);
 
 	// close
 	context.close();
