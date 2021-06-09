@@ -1,6 +1,7 @@
-package com.spring.aop.afterthrow.aspect;
+package com.spring.aop.afterthrowandafter.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
@@ -10,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuditAspect {
 
-    @Pointcut("execution(public * com.spring.aop.afterthrow..*.find* (..))")
+    @Pointcut("execution(public * com.spring.aop.afterthrowandafter..*.find* (..))")
     private void afterThrowPackage() {
     };
 
@@ -19,8 +20,14 @@ public class AuditAspect {
 	System.out.println("📍 " + getClass().getSimpleName() + ": " + " afterThrowing()");
 	// System.out.println("📍 " + joinPoint.getSignature().toShortString());
 
-	System.out.println("📍Send to DevOps team: ");
-	ex.printStackTrace();
+	System.out.println("📍Send to DevOps team: " + ex);
+	// ex.printStackTrace();
+    }
+
+    @After("afterThrowPackage()")
+    public void after() {
+	System.out.println("📍 " + getClass().getSimpleName() + ": " + " after()");
+
     }
 
 }

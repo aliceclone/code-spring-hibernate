@@ -1,11 +1,11 @@
-package com.spring.aop.afterthrow;
+package com.spring.aop.afterthrowandafter;
 
 import java.util.List;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.spring.SpringConfig;
-import com.spring.aop.afterthrow.dao.CoachDao;
+import com.spring.aop.afterthrowandafter.dao.CoachDao;
 import com.spring.entity.Account;
 
 public class MainAfterThrowApp {

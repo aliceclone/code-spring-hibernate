@@ -1,4 +1,4 @@
-package com.spring.aop.afterthrow.dao;
+package com.spring.aop.afterthrowandafter.dao;
 
 import java.util.Arrays;
 import java.util.List;
