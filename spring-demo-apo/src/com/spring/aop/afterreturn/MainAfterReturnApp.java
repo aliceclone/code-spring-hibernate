@@ -8,7 +8,7 @@ import com.spring.SpringConfig;
 import com.spring.aop.afterreturn.dao.CustomerDao;
 import com.spring.entity.Account;
 
-public class MainTransactionApp {
+public class MainAfterReturnApp {
 
     public static void main(String[] args) {
 
