@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class AuditAspect {
 
     @Pointcut("execution(public * com.spring.aop.afterthrowandafter..*.find* (..))")
-    private void afterThrowPackage() {
+    public void afterThrowPackage() {
     };
 
     @AfterThrowing(pointcut = "afterThrowPackage()", throwing = "ex")
@@ -24,9 +24,10 @@ public class AuditAspect {
 	// ex.printStackTrace();
     }
 
+    // as SAME aspect class with afterThrowing(), will execute after exception
     @After("afterThrowPackage()")
-    public void after() {
-	System.out.println("📍 " + getClass().getSimpleName() + ": " + " after()");
+    public void afterSameAspect() {
+	System.out.println("📍 " + getClass().getSimpleName() + ": " + " afterSameAspect()");
 
     }
 

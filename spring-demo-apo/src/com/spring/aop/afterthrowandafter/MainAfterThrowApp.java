@@ -23,7 +23,7 @@ public class MainAfterThrowApp {
 	try {
 
 	    // true to trigger exception
-	    List<Account> coaches = coachDao.findCoaches(true);
+	    List<Account> coaches = coachDao.findCoaches(false);
 	    System.out.println(coaches);
 
 	} catch (Exception e) {
