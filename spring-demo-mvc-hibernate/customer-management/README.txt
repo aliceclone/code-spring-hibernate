@@ -14,3 +14,6 @@ https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl-api/1.2
 
 ◼︎Mysql Connector/j (JDBC wrapper)
 https://dev.mysql.com/downloads/connector/j/
+
+◼︎AspectJ jar
+https://mvnrepository.com/artifact/org.aspectj/aspectjweaver
