@@ -9,13 +9,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.spring.demo.security")
+@ComponentScan("com.spring.demo")
 public class AppConfig {
 
     @Bean
     public ViewResolver internalResourceViewResolver() {
 
-	String prefix = "/WEB-INF/view";
+	String prefix = "/WEB-INF/view/";
 	String suffix = ".jsp";
 
 	return new InternalResourceViewResolver(prefix, suffix);

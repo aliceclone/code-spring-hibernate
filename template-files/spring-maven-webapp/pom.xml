@@ -5,26 +5,44 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>spring-maven-webapp</artifactId>
-	<groupId>com.spring.demo</groupId>
+	<artifactId>spring-demo-security</artifactId>
+	<groupId>com.spring.demo.security</groupId>
 	<packaging>war</packaging>
 
-	<name>Spring Demo</name>
-	<description>Spring Demo</description>
+	<name>Spring Demo Security</name>
+	<description>Spring Demo Security</description>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<springframework.version>5.3.8</springframework.version>
+		<spring.webmvc.version>5.3.8</spring.webmvc.version>
+		<spring.security.web.version>5.5.0</spring.security.web.version>
+		<spring.security.config.version>5.5.0</spring.security.config.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-	<!-- 📍 web start -->
 	<dependencies>
+		<!-- 📍 security start -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.web.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.config.version}</version>
+		</dependency>
+		<!-- 📍 security end -->
+
+		<!-- 📍 web start -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${springframework.version}</version>
+			<version>${spring.webmvc.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
@@ -69,7 +87,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>spring-maven-webapp</finalName>
+		<finalName>spring-demo-security</finalName>
 		<pluginManagement>
 			<plugins>
 
