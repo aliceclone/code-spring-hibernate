@@ -11,11 +11,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class TennisCoach implements Coach {
 
-    // inject
-    // field inject
-    @Autowired
-    // multi implementation, so
-    @Qualifier("happyFortuneService")
     private FortuneService fortuneService;
 
     public TennisCoach() {
@@ -23,11 +18,11 @@ public class TennisCoach implements Coach {
 
     // mark dependency, search qualifying bean of type
     // spring 4.3 and later, optional when ONLY one constructor exist
-
-    /*
-     * @Autowired public TennisCoach(FortuneService fortuneService) {
-     * this.fortuneService = fortuneService; }
-     */
+    // multi implementation, use qualifier
+    @Autowired
+    public TennisCoach(@Qualifier("happyFortuneService") FortuneService fortuneService) {
+	this.fortuneService = fortuneService;
+    }
 
     @Override
     public String getDailyWorkout() {
