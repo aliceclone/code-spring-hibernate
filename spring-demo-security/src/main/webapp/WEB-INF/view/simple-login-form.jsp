@@ -5,12 +5,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="resources/css/style.css">
 <meta charset="UTF-8">
-<style type="text/css">
-.err {
-color: red;
-}
-</style>
 <title>Login</title>
 </head>
 <body>

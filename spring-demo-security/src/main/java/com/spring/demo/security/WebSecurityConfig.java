@@ -1,4 +1,4 @@
-package com.spring.demo.config;
+package com.spring.demo.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -27,9 +27,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // ❗"/auth" will handle by Spring, no controller + jsp need
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
-	http.authorizeRequests().anyRequest().authenticated().and().formLogin().loginPage("/login")
-		.loginProcessingUrl("/auth").permitAll();
+	http.authorizeRequests().antMatchers("/resources/**").permitAll().anyRequest().authenticated().and().formLogin()
+		.loginPage("/login").loginProcessingUrl("/auth").permitAll();
     }
 
 }
