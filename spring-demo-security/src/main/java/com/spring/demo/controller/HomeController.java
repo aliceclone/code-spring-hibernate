@@ -11,4 +11,14 @@ public class HomeController {
 	return "home";
     }
 
+    @GetMapping("/managers")
+    public String leaderPage() {
+	return "manager-home";
+    }
+
+    @GetMapping("/systems")
+    public String systemPage() {
+	return "system-home";
+    }
+
 }

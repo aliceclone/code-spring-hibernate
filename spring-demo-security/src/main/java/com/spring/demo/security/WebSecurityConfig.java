@@ -27,12 +27,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // ❗"/auth" will handle by Spring, no controller + jsp need
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-	// permit css, image etc. files
-	http.authorizeRequests().antMatchers("/resources/**").permitAll()
-		// "/" must be authorized
-		.anyRequest().authenticated().and()
+	http.authorizeRequests()
+		// permit css, image etc. files
+		.antMatchers("/resources/**").permitAll()
+		// "/**" must be authorized
+		// .anyRequest().authenticated()
+		// permit to EMPLOYEE ROLE
+		.antMatchers("/").hasAnyRole("EMPLOYEE")
+		// permit to MANAGER ROLE
+		.antMatchers("/managers/**").hasRole("MANAGER")
+		// permit to SYSTEM ROLE
+		.antMatchers("/systems/**").hasRole("ADMIN")
+		//
+		.and()
 		// add custom login page, check authorization through "/auth"
-		.formLogin().loginPage("/login").loginProcessingUrl("/auth").permitAll().and()
+		.formLogin().loginPage("/login").loginProcessingUrl("/auth").permitAll()
+		//
+		.and()
 		// add logout
 		.logout().permitAll();
     }

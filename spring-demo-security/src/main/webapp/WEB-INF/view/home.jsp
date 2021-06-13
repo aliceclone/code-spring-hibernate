@@ -11,14 +11,18 @@
 <title>Home</title>
 </head>
 <body>
+	<hr>
+	<a href="${pageContext.request.contextPath}/managers">Leadership
+		Meeting</a>
+	<a href="${pageContext.request.contextPath}/systems">IT System
+		Meeting</a>
+	
 	<form:form action="${pageContext.request.contextPath}/logout"
 		method="POST">
 		<!-- <input type="submit" value="Logout"> -->
 		<a href="#" onclick="submit()"> Logout </a>
 	</form:form>
 	<hr>
-	<h1>Hello! ようこそ!</h1>
-
 	<i> Welcome Back, <sec:authentication property="name" />!
 	</i>
 	<p>
