@@ -12,11 +12,18 @@
 </head>
 <body>
 	<hr>
-	<a href="${pageContext.request.contextPath}/managers">Leadership
-		Meeting</a>
-	<a href="${pageContext.request.contextPath}/systems">IT System
-		Meeting</a>
-	
+	<!-- restrict content  -->
+	<sec:authorize access="hasRole('MANAGER')">
+		<a href="${pageContext.request.contextPath}/managers">Leadership
+			Meeting</a>
+	</sec:authorize>
+
+	<sec:authorize access="hasRole('ADMIN')">
+		<a href="${pageContext.request.contextPath}/systems">IT System
+			Meeting</a>
+	</sec:authorize>
+	<!-- restrict content  -->
+
 	<form:form action="${pageContext.request.contextPath}/logout"
 		method="POST">
 		<!-- <input type="submit" value="Logout"> -->
