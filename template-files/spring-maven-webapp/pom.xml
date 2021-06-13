@@ -5,18 +5,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>spring-demo-security</artifactId>
-	<groupId>com.spring.demo.security</groupId>
+	<artifactId>NAME</artifactId>
+	<groupId>PACKAGE NAME</groupId>
 	<packaging>war</packaging>
 
-	<name>Spring Demo Security</name>
-	<description>Spring Demo Security</description>
+	<name>NAME</name>
+	<description>DESCRIPTION</description>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
 		<spring.webmvc.version>5.3.8</spring.webmvc.version>
-		<spring.security.web.version>5.5.0</spring.security.web.version>
-		<spring.security.config.version>5.5.0</spring.security.config.version>
+		<spring.security.version>5.5.0</spring.security.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -26,14 +25,22 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>${spring.security.web.version}</version>
+			<version>${spring.security.version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>${spring.security.config.version}</version>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+		<!-- Optional -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
 		</dependency>
 		<!-- 📍 security end -->
 
@@ -87,7 +94,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>spring-demo-security</finalName>
+		<finalName>WAR FILE NAME</finalName>
 		<pluginManagement>
 			<plugins>
 
