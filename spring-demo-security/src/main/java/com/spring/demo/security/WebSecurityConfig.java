@@ -20,15 +20,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	auth.inMemoryAuthentication().withUser(users.username("John").password("john123").roles("EMPLOYEE"))
 		.withUser(users.username("Boss").password("boss123").roles("EMPLOYEE", "MANAGER"))
-		.withUser(users.username("Mary").password("mary123").roles("ADMIN"));
+		.withUser(users.username("Mary").password("mary123").roles("EMPLOYEE", "ADMIN"));
 
     }
 
     // ❗"/auth" will handle by Spring, no controller + jsp need
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-	http.authorizeRequests().antMatchers("/resources/**").permitAll().anyRequest().authenticated().and().formLogin()
-		.loginPage("/login").loginProcessingUrl("/auth").permitAll().and().logout().permitAll();
+	// permit css, image etc. files
+	http.authorizeRequests().antMatchers("/resources/**").permitAll()
+		// "/" must be authorized
+		.anyRequest().authenticated().and()
+		// add custom login page, check authorization through "/auth"
+		.formLogin().loginPage("/login").loginProcessingUrl("/auth").permitAll().and()
+		// add logout
+		.logout().permitAll();
     }
 
 }
