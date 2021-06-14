@@ -31,8 +31,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/resources/**").permitAll()
 		// "/**" must be authorized
 		// .anyRequest().authenticated()
+		// all can access INDEX page
+		.antMatchers("/").permitAll()
 		// permit to EMPLOYEE ROLE
-		.antMatchers("/").hasAnyRole("EMPLOYEE")
+		.antMatchers("/home/**").hasRole("EMPLOYEE")
 		// permit to MANAGER ROLE
 		.antMatchers("/managers/**").hasRole("MANAGER")
 		// permit to SYSTEM ROLE
@@ -44,7 +46,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		//
 		.and()
 		// add logout
-		.logout().permitAll()
+		.logout().
+		// after logout redirect to ROOT (default: /login?logout)
+		logoutSuccessUrl("/").permitAll()
 		//
 		.and()
 		// custom page for access denied

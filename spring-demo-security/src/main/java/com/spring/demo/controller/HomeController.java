@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @GetMapping("/")
+    public String index() {
+	// all can access without login
+	return "welcome";
+    }
+
+    @GetMapping("/home")
     public String home() {
 	return "home";
     }

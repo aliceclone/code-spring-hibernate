@@ -10,6 +10,6 @@
 	📛📛📛
 	<h1>Sorry, you are not authorized to access this page. 📢</h1>
 	<hr>
-	<a href="${pageContext.request.contextPath}/">Back to home</a>
+	<a href="${pageContext.request.contextPath}/home">Back to home</a>
 </body>
 </html>

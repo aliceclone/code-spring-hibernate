@@ -21,6 +21,6 @@
 	<p>What is leadership? Learn more about Meaning, Theories in annual
 		trip! ✈️</p>
 
-	<a href="${pageContext.request.contextPath}/"> Back</a>
+	<a href="${pageContext.request.contextPath}/home"> Back</a>
 </body>
 </html>

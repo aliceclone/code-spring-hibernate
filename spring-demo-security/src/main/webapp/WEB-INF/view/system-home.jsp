@@ -20,6 +20,6 @@
 
 	<p>Everything's under control! Let's meet at party as usual place!
 		💃🕺 ️</p>
-	<a href="${pageContext.request.contextPath}/"> Back</a>
+	<a href="${pageContext.request.contextPath}/home"> Back</a>
 </body>
 </html>
