@@ -51,3 +51,15 @@ VALUES
 ('susan','ROLE_ADMIN');
 
 
+-- https://www.bcryptcalculator.com/
+--
+-- Default passwords: password
+--
+
+INSERT INTO `users` 
+VALUES 
+('john','{bcrypt}$2a$10$diI4dvxItg5ApVwht4AQS.SSBelFJYkENIQhBxP65XQjD7UkzHysa',1),
+('mary','{bcrypt}$2a$10$diI4dvxItg5ApVwht4AQS.SSBelFJYkENIQhBxP65XQjD7UkzHysa',1),
+('susan','{bcrypt}$2a$10$diI4dvxItg5ApVwht4AQS.SSBelFJYkENIQhBxP65XQjD7UkzHysa',1);
+
+

@@ -35,7 +35,7 @@
 			<version>${spring.security.version}</version>
 		</dependency>
 
-        <!-- Optional -->
+		<!-- Optional -->
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -82,6 +82,23 @@
 			<version>2.3.1</version>
 		</dependency>
 		<!-- 📍web end -->
+
+		<!-- 📍DB start -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.25</version>
+		</dependency>
+
+		<!-- a JDBC Connection pooling / Statement caching library -->
+		<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
+		<dependency>
+			<groupId>com.mchange</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.5.5</version>
+		</dependency>
+		<!-- 📍DB end -->
 
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
