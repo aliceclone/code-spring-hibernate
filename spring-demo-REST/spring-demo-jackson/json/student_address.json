@@ -10,5 +10,11 @@
         "zip": "1845",
         "country": "USA"
     },
-    "skills":["Java", "PHP", "Python", "Javascript"]
+    "skills": [
+        "Java",
+        "PHP",
+        "Python",
+        "Javascript"
+    ],
+    "hobby": "reading"
 }
