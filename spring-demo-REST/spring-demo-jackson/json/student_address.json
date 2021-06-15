@@ -1,0 +1,14 @@
+{
+    "id": 2,
+    "firstName": "Mary",
+    "lastName": "Multnomah",
+    "active": true,
+    "address": {
+        "street": "101 Main St",
+        "city": "Portland",
+        "state": "Oregon",
+        "zip": "1845",
+        "country": "USA"
+    },
+    "skills":["Java", "PHP", "Python", "Javascript"]
+}
