@@ -66,4 +66,12 @@ public class StudentRestController {
 	return new ResponseEntity<CommonErrResponse>(error, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler
+    public ResponseEntity<?> genericException(Exception ex) {
+	CommonErrResponse error = new CommonErrResponse(HttpStatus.BAD_REQUEST.value(),
+		"Sorry cannot perform your request.", System.currentTimeMillis());
+
+	return new ResponseEntity<CommonErrResponse>(error, HttpStatus.BAD_REQUEST);
+    }
+
 }
