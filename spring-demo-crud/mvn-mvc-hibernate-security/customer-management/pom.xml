@@ -14,11 +14,13 @@
 	<version>0.0.2-SNAPSHOT</version>
 
 	<properties>
+		<project.java.version>1.8</project.java.version>
+		<!-- <maven.compiler.target>1.8</maven.compiler.target> -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring.version>5.3.8</spring.version>
 		<spring.security.version>5.5.0</spring.security.version>
 		<hibernate.core.version>5.5.0.Final</hibernate.core.version>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 	<dependencies>
 		<!-- 📍 security start -->
@@ -35,6 +37,10 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring.security.version}</version>
 		</dependency>
+
+		<!-- Spring Object/Relational Mapping for Hibernate session factory -->
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-orm</artifactId> 
+			<version>${spring.version}</version> </dependency> -->
 
 		<!-- Optional -->
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
@@ -60,22 +66,6 @@
 			<version>${spring.version}</version>
 		</dependency>
 
-		<!-- Spring AOP -->
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjweaver</artifactId>
-			<version>1.9.6</version>
-		</dependency>
-		<!-- Spring AOP -->
-
 		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -96,6 +86,14 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
+		</dependency>
+
+		<!-- Hibernate Validator -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.2.0.Final</version>
 		</dependency>
 
 		<!-- Java 9+ has removed java.xml.bind from its default classpath. -->
@@ -127,15 +125,25 @@
 			<version>1.2.0</version>
 		</dependency>
 		<!-- Java 9+ has removed java.xml.bind from its default classpath. -->
+		<!-- 📍 web end -->
 
-		<!-- Hibernate Validator -->
-		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+		<!-- 📍 Spring AOP -->
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
 		<dependency>
-			<groupId>org.hibernate.validator</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>6.2.0.Final</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.9.6</version>
+		</dependency>
+		<!-- 📍 Spring AOP -->
+
+		<!-- 📍DB start -->
 		<!-- Hibernate Core -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
@@ -144,16 +152,6 @@
 			<version>${hibernate.core.version}</version>
 		</dependency>
 
-		<!-- Spring Object/Relational Mapping for Hibernate session factory -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
-		<!-- 📍web end -->
-
-		<!-- 📍DB start -->
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -184,7 +182,31 @@
 		<finalName>customer-management</finalName>
 		<pluginManagement>
 			<plugins>
+				<!--The Compiler Plugin is used to compile the sources of your project. -->
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.1</version>
+					<configuration>
+						<source>${project.java.version}</source>
+						<target>${project.java.version}</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
 
+				<!-- encoding -->
+				<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.2.0</version>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+
+				<!-- web -->
 				<plugin>
 					<!-- Builds a Web Application Archive (WAR) file from the project output and 
 						its dependencies. -->
@@ -193,9 +215,7 @@
 					<artifactId>maven-war-plugin</artifactId>
 					<version>3.3.1</version>
 				</plugin>
-
 			</plugins>
-
 		</pluginManagement>
 	</build>
 </project>
