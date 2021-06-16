@@ -38,10 +38,6 @@
 			<version>${spring.security.version}</version>
 		</dependency>
 
-		<!-- Spring Object/Relational Mapping for Hibernate session factory -->
-		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-orm</artifactId> 
-			<version>${spring.version}</version> </dependency> -->
-
 		<!-- Optional -->
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
 		<dependency>
@@ -166,6 +162,15 @@
 			<artifactId>c3p0</artifactId>
 			<version>0.9.5.5</version>
 		</dependency>
+		
+        <!-- Spring Object/Relational Mapping for Hibernate [session factory & transaction 
+            manager] -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        
 		<!-- 📍DB end -->
 
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
