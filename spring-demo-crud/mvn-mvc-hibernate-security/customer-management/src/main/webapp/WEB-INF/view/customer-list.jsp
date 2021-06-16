@@ -16,7 +16,7 @@
 <link type="text/css" rel="stylesheet" href="${mainCss}" />
 
 
-<title>Customer | List</title>
+<title> <spring:message code="customer.title" /> </title>
 </head>
 <body>
 

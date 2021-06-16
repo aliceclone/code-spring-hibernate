@@ -1,6 +1,7 @@
 package com.spring.demo.config;
 
 import java.beans.PropertyVetoException;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -8,11 +9,13 @@ import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -47,10 +50,18 @@ public class AppConfig implements WebMvcConfigurer {
 	return viewResolver;
     }
 
+    // ❗ message resolution to a bean with the exact name
+    @Bean
+    public MessageSource messageSource() {
+	ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+	messageSource.setBasename("classpath:messages");
+	messageSource.setDefaultEncoding(StandardCharsets.UTF_8.name());
+	return messageSource;
+    }
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 	registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-
     }
 
     @Bean
@@ -119,6 +130,12 @@ public class AppConfig implements WebMvcConfigurer {
 	dataSource.setMaxPoolSize(convertInt("connection.pool.maxPoolSize"));
 	dataSource.setMaxIdleTime(convertInt("connection.pool.maxIdleTime"));
     }
+
+    // ❗Not sure when this will need
+//    @Bean
+//    public StringHttpMessageConverter stringHttpMessageConverter() {
+//        return new StringHttpMessageConverter(StandardCharsets.UTF_8);
+//    }
 
     private int convertInt(String key) {
 	return Integer.parseInt(env.getProperty(key));
