@@ -37,7 +37,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 public class AppConfig implements WebMvcConfigurer {
 
     @Autowired
-    Environment env;
+    private Environment env;
 
     // setup logger
     private Logger logger = Logger.getLogger(getClass().getName());
@@ -88,13 +88,15 @@ public class AppConfig implements WebMvcConfigurer {
 
     }
 
+    // ❗@Autowired is used️ to use just created DataSource
     @Bean
-    public LocalSessionFactoryBean crmSessionFactory() {
+    @Autowired
+    public LocalSessionFactoryBean crmSessionFactory(DataSource crmDataSource) {
 	// create hibernate session factory through spring
 	logger.info("📍Creating [LocalSessionFactoryBean] hibernate session factory through spring");
 	LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 	// set c3p0
-	sessionFactory.setDataSource(crmDataSource());
+	sessionFactory.setDataSource(crmDataSource);
 	// hibernate annotation scan
 	sessionFactory.setPackagesToScan(env.getProperty("hiberante.packagesToScan"));
 	// set hibernate props
@@ -103,7 +105,7 @@ public class AppConfig implements WebMvcConfigurer {
 
     }
 
-    // ❗@Autowired is used️
+    // ❗@Autowired is used️ to use just created SessionFactory
     @Bean
     @Autowired
     public HibernateTransactionManager crmTxManager(SessionFactory crmSessionFactory) {
