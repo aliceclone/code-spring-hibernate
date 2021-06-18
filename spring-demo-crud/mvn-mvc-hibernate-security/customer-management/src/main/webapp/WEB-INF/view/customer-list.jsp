@@ -12,7 +12,7 @@
 <%-- <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" /> --%>
 
 <%-- include css link with spring --%>
-<spring:url value="/resources/css/style.css" var="mainCss"></spring:url>
+<spring:url value="/static/css/style.css" var="mainCss"></spring:url>
 <link type="text/css" rel="stylesheet" href="${mainCss}" />
 
 

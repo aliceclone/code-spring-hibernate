@@ -1,48 +1,80 @@
 package com.spring.demo.security;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.spring.demo.common.Constant;
+import com.spring.demo.service.UserService;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    // crmDataSource
-    @Autowired
-    private DataSource dataSource;
+//    @Autowired
+//    private DataSource dataSource;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-	auth.jdbcAuthentication().dataSource(dataSource);
+    @Autowired
+    private UserService userService;
+
+    @Bean
+    public BCryptPasswordEncoder bCryptEncoder() {
+	return new BCryptPasswordEncoder();
+    }
+
+    // ❗custom password encoder and user
+    @Bean
+    public DaoAuthenticationProvider daoAuthenticationProvider() {
+	DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+	authProvider.setUserDetailsService(userService);
+	authProvider.setPasswordEncoder(bCryptEncoder());
+	return authProvider;
     }
 
     @Override
-    protected UserDetailsService userDetailsService() {
-	// TODO Auto-generated method stub
-	return super.userDetailsService();
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	// ❗ jdbc is NOT use
+	// auth.jdbcAuthentication().dataSource(dataSource);
+	auth.authenticationProvider(daoAuthenticationProvider());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+	// more specific to less
 	http.authorizeRequests()
+		// allow access to everyone to index
+		.antMatchers("/").permitAll()
+		// deny [POST]
+		// .antMatchers(HttpMethod.POST).denyAll()
 		// allow resources
-		.antMatchers("/resources/**").permitAll()
-		// allow index page
-		.antMatchers("/").permitAll().and()
+		.antMatchers("/static/**").permitAll()
+		// allow GET REQUEST to employee & manager
+		.antMatchers(HttpMethod.GET, "/customers", "/customers/")
+		.hasAnyRole(Constant.EMPLOYEE, Constant.MANAGER)
+		// allow POST REQUEST to manager
+		.antMatchers(HttpMethod.POST, "/customers").hasRole(Constant.MANAGER)
+		// allow [add & update] to manager
+		.antMatchers("/customers/add", "/customers/{\\d+}/update").hasRole(Constant.MANAGER)
+		// allow ALL to admin
+		.antMatchers("/customers/**").hasRole(Constant.ADMIN)
+		// everyone require to login to access function
+		.antMatchers("/*").authenticated()
+		//
+		.and()
 		// add custom login page
 		.formLogin().loginPage("/login")
 		// check authorization through "/auth"
 		.loginProcessingUrl("/auth").permitAll()
-		//
+		// .
 		.and()
-		// logout
+		// logout redirect to ROOT
 		.logout().logoutSuccessUrl("/").permitAll()
 		//
 		.and()
