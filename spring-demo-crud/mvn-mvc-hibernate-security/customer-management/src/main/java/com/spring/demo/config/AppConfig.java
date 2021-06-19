@@ -98,7 +98,7 @@ public class AppConfig implements WebMvcConfigurer {
 	// set c3p0
 	sessionFactory.setDataSource(crmDataSource);
 	// hibernate annotation scan
-	sessionFactory.setPackagesToScan(env.getProperty("hiberante.packagesToScan"));
+	sessionFactory.setPackagesToScan(env.getProperty("hibernate.packagesToScan"));
 	// set hibernate props
 	sessionFactory.setHibernateProperties(hibernateProperties());
 	return sessionFactory;
