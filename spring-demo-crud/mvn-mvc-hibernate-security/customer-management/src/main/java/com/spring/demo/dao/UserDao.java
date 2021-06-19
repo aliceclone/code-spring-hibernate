@@ -1,5 +1,7 @@
 package com.spring.demo.dao;
 
+import java.util.List;
+
 import com.spring.demo.entity.User;
 
 public interface UserDao {
@@ -8,5 +10,9 @@ public interface UserDao {
 
     public User findbyUserName(String name);
 
+    public List<User> getUsers();
+
     public void saveOrUpdate(User user);
+
+    public void deleteUser(Long id);
 }

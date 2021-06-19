@@ -20,6 +20,11 @@
 
 	<sec:authorize access="isAuthenticated()">
        Welcome Back, <sec:authentication property="name" />
+		<ul>
+			<li><a href="customers">Customer List</a></li>
+			<li><a href="users">User List</a></li>
+		</ul>
+		
 		<form:form action="${pageContext.request.contextPath}/logout"
 			method="POST">
 			<a href="#" onclick="submit()"> Logout </a>

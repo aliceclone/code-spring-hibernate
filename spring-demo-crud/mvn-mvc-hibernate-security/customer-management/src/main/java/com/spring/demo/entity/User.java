@@ -42,29 +42,6 @@ public class User {
     @Column
     private String password;
 
-    public User() {
-    }
-
-    public User(Long id, String userName, String firstName, String lastName, String email, String password) {
-	this.id = id;
-	this.userName = userName;
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.email = email;
-	this.password = password;
-    }
-
-    public User(List<Role> roles, Long id, String userName, String firstName, String lastName, String email,
-	    String password) {
-	this.roles = roles;
-	this.id = id;
-	this.userName = userName;
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.email = email;
-	this.password = password;
-    }
-
     public Long getId() {
 	return id;
     }

@@ -1,5 +1,6 @@
 package com.spring.demo.service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -7,9 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.spring.demo.common.Constant;
+import com.spring.demo.dao.RoleDao;
 import com.spring.demo.dao.UserDao;
 import com.spring.demo.entity.Role;
 import com.spring.demo.entity.User;
@@ -19,6 +23,12 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private RoleDao roleDao;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
@@ -58,7 +68,26 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void saveOrUpdate(User user) {
+	// perform password encoding
+	String encodePassword = passwordEncoder.encode(user.getPassword());
+	// Granted EMPLOYEE authority
+	Role defaultRole = roleDao.findbyName(Constant.EMPLOYEE);
+	user.setPassword(encodePassword);
+	user.setRoles(Arrays.asList(defaultRole));
+	// save
 	userDao.saveOrUpdate(user);
+    }
+
+    @Override
+    @Transactional
+    public List<User> getUsers() {
+	return userDao.getUsers();
+    }
+
+    @Override
+    @Transactional
+    public void deleteUser(Long id) {
+	userDao.deleteUser(id);
     }
 
 }

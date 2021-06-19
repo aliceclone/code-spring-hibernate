@@ -1,5 +1,7 @@
 package com.spring.demo.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -44,6 +46,21 @@ public class UserDaoImpl implements UserDao {
     public void saveOrUpdate(User user) {
 	Session session = sessionFactory.getCurrentSession();
 	session.saveOrUpdate(user);
+    }
+
+    @Override
+    public List<User> getUsers() {
+	Session session = sessionFactory.getCurrentSession();
+	Query<User> query = session.createQuery("from User order by lastName", User.class);
+	return query.getResultList();
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+	Session session = sessionFactory.getCurrentSession();
+	Query query = session.createQuery("delete from User where id=:theId");
+	query.setParameter("theId", id);
+	query.executeUpdate();
     }
 
 }
