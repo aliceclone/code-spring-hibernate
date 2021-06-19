@@ -33,8 +33,6 @@ public class AppConfig implements WebMvcConfigurer {
 
     private Logger logger = Logger.getLogger(getClass().getName());
 
-    // define a bean for ViewResolver
-
     @Bean
     public DataSource dataSource() {
 
@@ -72,11 +70,10 @@ public class AppConfig implements WebMvcConfigurer {
 	dataSource.setMaxIdleTime(convertInt("connection.pool.maxIdleTime"));
     }
 
-    private Properties getHibernateProperties() {
-
+    private Properties hibernateProperties() {
+	logger.info("📍 Setting hibernate properties");
 	// set hibernate properties
 	Properties props = new Properties();
-
 	props.setProperty("hibernate.dialect", env.getProperty("hibernate.dialect"));
 	props.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
 	props.setProperty("hibernate.format_sql", env.getProperty("hibernate.format_sql"));
@@ -105,7 +102,7 @@ public class AppConfig implements WebMvcConfigurer {
 	// set the properties
 	sessionFactory.setDataSource(dataSource());
 	sessionFactory.setPackagesToScan(env.getProperty("hibernate.packagesToScan"));
-	sessionFactory.setHibernateProperties(getHibernateProperties());
+	sessionFactory.setHibernateProperties(hibernateProperties());
 
 	return sessionFactory;
     }
