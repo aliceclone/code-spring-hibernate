@@ -56,14 +56,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// allow resources
 		.antMatchers("/static/**").permitAll()
 		// allow GET REQUEST to employee & manager
-		.antMatchers(HttpMethod.GET, "/customers", "/customers/")
-		.hasAnyRole(Constant.EMPLOYEE, Constant.MANAGER)
-		// allow POST REQUEST to manager
-		.antMatchers(HttpMethod.POST, "/customers").hasRole(Constant.MANAGER)
-		// allow [add & update] to manager
-		.antMatchers("/customers/add", "/customers/{\\d+}/update").hasRole(Constant.MANAGER)
+		.antMatchers(HttpMethod.GET, "/users", "/users/").hasAnyAuthority(Constant.EMPLOYEE, Constant.MANAGER)
+		// allow POST REQUEST to admin & manager
+		.antMatchers(HttpMethod.POST, "/users").hasAnyAuthority(Constant.ADMIN, Constant.MANAGER)
+		// allow [add & update] to admin & manager
+		.antMatchers("/users/add", "/users/{\\d+}/update").hasAnyAuthority(Constant.ADMIN, Constant.MANAGER)
 		// allow ALL to admin
-		.antMatchers("/customers/**").hasRole(Constant.ADMIN)
+		.antMatchers("/users/**").hasAuthority(Constant.ADMIN)
 		// everyone require to login to access function
 		.antMatchers("/*").authenticated()
 		//
