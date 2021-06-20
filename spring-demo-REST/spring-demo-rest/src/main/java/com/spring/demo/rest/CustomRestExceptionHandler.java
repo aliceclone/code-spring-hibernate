@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -97,6 +98,23 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 	logger.info(ex.getClass().getName());
 	String error = "No handler found for " + ex.getHttpMethod() + " " + ex.getRequestURL();
 	ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, ex.getLocalizedMessage(), error,
+		System.currentTimeMillis());
+	return new ResponseEntity<>(apiError, apiError.getStatus());
+    }
+
+    // [405]
+    @Override
+    protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex,
+	    HttpHeaders headers, HttpStatus status, WebRequest request) {
+	logger.info(ex.getClass().getName());
+
+	StringBuilder error = new StringBuilder();
+	error.append(ex.getMethod());
+	error.append(" method is not supported for ");
+	// error.append(ex.getValue());
+	ex.getSupportedHttpMethods().forEach(x -> error.append(x));
+
+	ApiError apiError = new ApiError(HttpStatus.METHOD_NOT_ALLOWED, ex.getLocalizedMessage(), error.toString(),
 		System.currentTimeMillis());
 	return new ResponseEntity<>(apiError, apiError.getStatus());
     }
