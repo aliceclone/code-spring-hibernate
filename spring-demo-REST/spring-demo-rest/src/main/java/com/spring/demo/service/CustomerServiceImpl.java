@@ -25,7 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     @Transactional
     public void saveCustomer(Customer theCustomer) {
-
+	// ❗null or 0 -> hibernate will do SAVE, otherwise UPDATE
 	customerDAO.saveCustomer(theCustomer);
     }
 
