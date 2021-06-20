@@ -26,6 +26,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional
     public void saveCustomer(Customer theCustomer) {
 	// ❗null or 0 -> hibernate will do SAVE, otherwise UPDATE
+	// if save() is use will not be problem
 	customerDAO.saveCustomer(theCustomer);
     }
 
