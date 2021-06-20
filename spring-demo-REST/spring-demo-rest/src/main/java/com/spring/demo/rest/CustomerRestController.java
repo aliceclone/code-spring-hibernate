@@ -3,7 +3,6 @@ package com.spring.demo.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,10 +26,10 @@ public class CustomerRestController {
     }
 
     @GetMapping("/customers/{id}")
-    public Customer getSingleCustomer(@PathVariable("id") int id, BindingResult result) {
-	System.out.println(result);
+    public Customer getSingleCustomer(@PathVariable("id") int id) {
 	// if Null -> Jackson will return empty body
 	Customer customer = customerService.getCustomer(id);
+	System.out.println("📍️getSingleCustomer: " + customer);
 	// handle manually
 	if (customer == null) {
 	    throw new UserNotFoundException("User id " + id + " is not found!");

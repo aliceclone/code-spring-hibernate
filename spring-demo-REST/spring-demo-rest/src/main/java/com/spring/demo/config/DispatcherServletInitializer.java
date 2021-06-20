@@ -1,5 +1,7 @@
 package com.spring.demo.config;
 
+import javax.servlet.ServletRegistration.Dynamic;
+
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class DispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -20,4 +22,9 @@ public class DispatcherServletInitializer extends AbstractAnnotationConfigDispat
 	return new String[] { "/" };
     }
 
+    // ❗️DispatcherServlet sends error response without throwing exception
+    // to throw [404] as exception and catch at handleNoHandlerFoundException()
+    protected void customizeRegistration(Dynamic registration) {
+	registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
+    }
 }
