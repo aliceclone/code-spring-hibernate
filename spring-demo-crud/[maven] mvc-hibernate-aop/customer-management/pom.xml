@@ -19,7 +19,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring.version>5.3.8</spring.version>
-		<spring.security.version>5.5.0</spring.security.version>
 		<aspectjweaver.version>1.9.6</aspectjweaver.version>
 		<servlet.version>4.0.1</servlet.version>
 		<jsp.version>2.3.3</jsp.version>
@@ -30,29 +29,6 @@
 		<hibernate.validator.version>6.2.0.Final</hibernate.validator.version>
 	</properties>
 	<dependencies>
-		<!-- 📍 security start -->
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-
-		<!-- Optional -->
-		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs</artifactId>
-			<version>${spring.security.version}</version>
-		</dependency>
-		<!-- 📍 security end -->
 
 		<!-- 📍 web start -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->

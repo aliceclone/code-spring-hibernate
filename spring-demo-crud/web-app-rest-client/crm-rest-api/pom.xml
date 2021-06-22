@@ -5,17 +5,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>spring-demo-rest</artifactId>
+	<artifactId>crm-rest-api</artifactId>
 	<groupId>com.spring.demo</groupId>
 	<packaging>war</packaging>
 
-	<name>customer-management-rest</name>
+	<name>crm-rest-api</name>
 	<description>customer-management-rest</description>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
 		<!-- <failOnMissingWebXml>false</failOnMissingWebXml> -->
-		<project.java.version>1.8</project.java.version>
+		<project.java.version>11</project.java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring.version>5.3.8</spring.version>
@@ -131,7 +131,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>crm-rest</finalName>
+		<finalName>crm-rest-api</finalName>
 		<pluginManagement>
 			<plugins>
 				<!--The Compiler Plugin is used to compile the sources of your project. -->
