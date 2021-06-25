@@ -6,9 +6,9 @@ import com.spring.boot.demo.entity.Employee;
 
 public interface EmployeeService {
 
-    public List<Employee> findAllEmployee();
+    public List<Employee> findAll();
 
-    public Employee findEmployeeById(int id);
+    public Employee findById(int id);
 
     public void save(Employee employee);
 
