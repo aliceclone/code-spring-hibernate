@@ -19,7 +19,7 @@ public class EmployeeDaoHibernateImpl implements EmployeeDao {
     private EntityManager entityManager;
 
     @Override
-    public List<Employee> findAllEmployee() {
+    public List<Employee> findAll() {
 	// get session
 	Session session = entityManager.unwrap(Session.class);
 	// query
@@ -28,7 +28,7 @@ public class EmployeeDaoHibernateImpl implements EmployeeDao {
     }
 
     @Override
-    public Employee findEmployeeById(int theId) {
+    public Employee findById(int theId) {
 	// get session
 	Session session = entityManager.unwrap(Session.class);
 	// get employee

@@ -3,6 +3,7 @@ package com.spring.boot.demo.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,19 +13,26 @@ import com.spring.boot.demo.entity.Employee;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
+    // ① plug-in Hibernate impl
+    // @Autowired
+    // @Qualifier("employeeDaoHibernateImpl")
+    // private EmployeeDao employeeDao;
+
+    // ② plug-in JPA
     @Autowired
+    @Qualifier("employeeDaoJpaImpl")
     private EmployeeDao employeeDao;
 
     @Override
     @Transactional
-    public List<Employee> findAllEmployee() {
-	return employeeDao.findAllEmployee();
+    public List<Employee> findAll() {
+	return employeeDao.findAll();
     }
 
     @Override
     @Transactional
-    public Employee findEmployeeById(int id) {
-	return employeeDao.findEmployeeById(id);
+    public Employee findById(int id) {
+	return employeeDao.findById(id);
     }
 
     @Override

@@ -18,7 +18,7 @@ public class EmployeeDaoJpaImpl implements EmployeeDao {
     private EntityManager entityManager;
 
     @Override
-    public List<Employee> findAllEmployee() {
+    public List<Employee> findAll() {
 	// create query
 	TypedQuery<Employee> createQuery = entityManager.createQuery("from Employee", Employee.class);
 	// return result
@@ -26,7 +26,7 @@ public class EmployeeDaoJpaImpl implements EmployeeDao {
     }
 
     @Override
-    public Employee findEmployeeById(int id) {
+    public Employee findById(int id) {
 	Employee employee = entityManager.find(Employee.class, id);
 	return employee;
     }
