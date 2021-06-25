@@ -27,12 +27,12 @@ public class EmployeeRestController {
 
     @GetMapping("/employees")
     public List<Employee> getEmployees() {
-	return employeeService.findAllEmployee();
+	return employeeService.findAll();
     }
 
     @GetMapping("/employees/{id}")
     public Employee getEmployee(@PathVariable int id) {
-	Employee employee = employeeService.findEmployeeById(id);
+	Employee employee = employeeService.findById(id);
 	if (employee == null) {
 	    throw new RuntimeException("employee id: " + id + " not found");
 	}
@@ -63,7 +63,7 @@ public class EmployeeRestController {
     public String delete(@PathVariable int id) {
 
 	// pre check
-	Employee employee = employeeService.findEmployeeById(id);
+	Employee employee = employeeService.findById(id);
 	System.out.println("delete>> " + employee);
 	if (employee == null) {
 	    String error = "Id " + id + " is not found.";
